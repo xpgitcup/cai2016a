@@ -48,10 +48,11 @@ INSERT INTO `system_menu` VALUES ('21', '0', 'schoolYear/index', '学年', '学�
 INSERT INTO `system_menu` VALUES ('22', '0', 'schoolTerm/index', '学期', '学期', '0', '0', '20');
 INSERT INTO `system_menu` VALUES ('23', '0', 'grade/index', '班级', '班级', '0', '0', '20');
 INSERT INTO `system_menu` VALUES ('24', '0', 'student/index', '学生', '学生', '0', '0', '20');
-INSERT INTO `system_menu` VALUES ('25', '0', 'teacher/index', '教师', '教师', '0', '0', '20');
-INSERT INTO `system_menu` VALUES ('26', '0', 'teaching/index', '课程', '课程', '0', '0', '20');
-INSERT INTO `system_menu` VALUES ('27', '0', 'teaching/index', '教学', '教学', '0', '0', '20');
-INSERT INTO `system_menu` VALUES ('28', '0', 'learning/index', '学习', '学习', '0', '0', '20');
-INSERT INTO `system_menu` VALUES ('29', '0', 'homework/index', '留作业', '留作业', '0', '0', '20');
-INSERT INTO `system_menu` VALUES ('30', '0', 'studentGroup/index', '作业分组', '作业分组', '0', '0', '20');
-INSERT INTO `system_menu` VALUES ('30', '0', 'job/index', '交作业', '交作业', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('25', '0', 'course/index', '课程', '课程', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('26', '0', 'teacher/index', '教师', '教师', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('27', '0', 'teaching/index', '课程', '课程', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('28', '0', 'teaching/index', '教学', '教学', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('29', '0', 'learning/index', '学习', '学习', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('30', '0', 'homework/index', '留作业', '留作业', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('31', '0', 'studentGroup/index', '作业分组', '作业分组', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('32', '0', 'job/index', '交作业', '交作业', '0', '0', '20');
