@@ -7,7 +7,7 @@ class StudentGroup {
     String name
     Homework homework
     
-    static hasMany = [student: Student]
+    static hasMany = [groupItem: GroupItem]
     
     static constraints = {
         name()

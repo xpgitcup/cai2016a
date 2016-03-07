@@ -41,12 +41,12 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${studentGroupInstance?.student}">
+				<g:if test="${studentGroupInstance?.groupItem}">
 				<li class="fieldcontain">
-					<span id="student-label" class="property-label"><g:message code="studentGroup.student.label" default="Student" /></span>
+					<span id="groupItem-label" class="property-label"><g:message code="studentGroup.groupItem.label" default="Group Item" /></span>
 					
-						<g:each in="${studentGroupInstance.student}" var="s">
-						<span class="property-value" aria-labelledby="student-label"><g:link controller="student" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
+						<g:each in="${studentGroupInstance.groupItem}" var="g">
+						<span class="property-value" aria-labelledby="groupItem-label"><g:link controller="groupItem" action="show" id="${g.id}">${g?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>

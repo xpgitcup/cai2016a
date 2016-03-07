@@ -20,12 +20,21 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: studentGroupInstance, field: 'student', 'error')} ">
-	<label for="student">
-		<g:message code="studentGroup.student.label" default="Student" />
+<div class="fieldcontain ${hasErrors(bean: studentGroupInstance, field: 'groupItem', 'error')} ">
+	<label for="groupItem">
+		<g:message code="studentGroup.groupItem.label" default="Group Item" />
 		
 	</label>
-	<g:select name="student" from="${cn.edu.cup.cai.Student.list()}" multiple="multiple" optionKey="id" size="5" value="${studentGroupInstance?.student*.id}" class="many-to-many"/>
+	
+<ul class="one-to-many">
+<g:each in="${studentGroupInstance?.groupItem?}" var="g">
+    <li><g:link controller="groupItem" action="show" id="${g.id}">${g?.encodeAsHTML()}</g:link></li>
+</g:each>
+<li class="add">
+<g:link controller="groupItem" action="create" params="['studentGroup.id': studentGroupInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'groupItem.label', default: 'GroupItem')])}</g:link>
+</li>
+</ul>
+
 
 </div>
 
