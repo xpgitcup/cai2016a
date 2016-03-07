@@ -23,6 +23,15 @@
 			</g:if>
 			<ol class="property-list schoolYear">
 			
+				<g:if test="${schoolYearInstance?.startYear}">
+				<li class="fieldcontain">
+					<span id="startYear-label" class="property-label"><g:message code="schoolYear.startYear.label" default="Start Year" /></span>
+					
+						<span class="property-value" aria-labelledby="startYear-label"><g:fieldValue bean="${schoolYearInstance}" field="startYear"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${schoolYearInstance?.endYear}">
 				<li class="fieldcontain">
 					<span id="endYear-label" class="property-label"><g:message code="schoolYear.endYear.label" default="End Year" /></span>
@@ -48,15 +57,6 @@
 						<g:each in="${schoolYearInstance.schoolTerm}" var="s">
 						<span class="property-value" aria-labelledby="schoolTerm-label"><g:link controller="schoolTerm" action="show" id="${s.id}">${s?.encodeAsHTML()}</g:link></span>
 						</g:each>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${schoolYearInstance?.startYear}">
-				<li class="fieldcontain">
-					<span id="startYear-label" class="property-label"><g:message code="schoolYear.startYear.label" default="Start Year" /></span>
-					
-						<span class="property-value" aria-labelledby="startYear-label"><g:fieldValue bean="${schoolYearInstance}" field="startYear"/></span>
 					
 				</li>
 				</g:if>

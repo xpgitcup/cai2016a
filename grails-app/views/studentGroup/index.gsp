@@ -24,9 +24,9 @@
                             <thead>
                                 <tr>
                                     
-                                    <th><g:message code="studentGroup.homework.label" default="Homework" /></th>
-                                        
                                         <g:sortableColumn property="name" title="${message(code: 'studentGroup.name.label', default: 'Name')}" />
+                                        
+                                    <th><g:message code="studentGroup.homework.label" default="Homework" /></th>
                                         
                                 </tr>
                             </thead>
@@ -34,9 +34,9 @@
                                 <g:each in="${studentGroupInstanceList}" status="i" var="studentGroupInstance">
                                     <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                                         
-                                        <td><g:link action="show" id="${studentGroupInstance.id}">${fieldValue(bean: studentGroupInstance, field: "homework")}</g:link></td>
+                                        <td><g:link action="show" id="${studentGroupInstance.id}">${fieldValue(bean: studentGroupInstance, field: "name")}</g:link></td>
                                         
-                                        <td>${fieldValue(bean: studentGroupInstance, field: "name")}</td>
+                                        <td>${fieldValue(bean: studentGroupInstance, field: "homework")}</td>
                                         
                                     </tr>
                                 </g:each>

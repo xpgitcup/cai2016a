@@ -56,3 +56,6 @@ INSERT INTO `system_menu` VALUES ('29', '0', 'learning/index', '学习', '学习
 INSERT INTO `system_menu` VALUES ('30', '0', 'homework/index', '留作业', '留作业', '0', '0', '20');
 INSERT INTO `system_menu` VALUES ('31', '0', 'studentGroup/index', '作业分组', '作业分组', '0', '0', '20');
 INSERT INTO `system_menu` VALUES ('32', '0', 'job/index', '交作业', '交作业', '0', '0', '20');
+
+INSERT INTO `system_menu` VALUES ('60', '0', '#', '工作流程', '#', '0', '0', null);
+INSERT INTO `system_menu` VALUES ('61', '0', 'caiTools/index', '操作流程', '交作业', '0', '0', '60');

@@ -2,6 +2,15 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: schoolYearInstance, field: 'startYear', 'error')} required">
+	<label for="startYear">
+		<g:message code="schoolYear.startYear.label" default="Start Year" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="startYear" type="number" value="${schoolYearInstance.startYear}" required=""/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: schoolYearInstance, field: 'endYear', 'error')} required">
 	<label for="endYear">
 		<g:message code="schoolYear.endYear.label" default="End Year" />
@@ -11,12 +20,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: schoolYearInstance, field: 'name', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: schoolYearInstance, field: 'name', 'error')} ">
 	<label for="name">
 		<g:message code="schoolYear.name.label" default="Name" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="name" required="" value="${schoolYearInstance?.name}"/>
+	<g:textField name="name" value="${schoolYearInstance?.name}"/>
 
 </div>
 
@@ -35,15 +44,6 @@
 </li>
 </ul>
 
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: schoolYearInstance, field: 'startYear', 'error')} required">
-	<label for="startYear">
-		<g:message code="schoolYear.startYear.label" default="Start Year" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="startYear" type="number" value="${schoolYearInstance.startYear}" required=""/>
 
 </div>
 

@@ -10,6 +10,8 @@ class StudentGroup {
     static hasMany = [student: Student]
     
     static constraints = {
+        name()
+        homework()
     }
     
     String toString() {

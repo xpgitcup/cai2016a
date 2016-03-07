@@ -9,10 +9,13 @@ class SchoolYear {
     static hasMany = [schoolTerm: SchoolTerm]
     
     static constraints = {
+        startYear()
+        endYear()
+        name(nullable: true)
     }
     
     def beforeInsert() {
-        name.format("%d-%d", startYear, endYear)
+        name = String.format("%d-%d", startYear, endYear)
     }
     
     String toString() {

@@ -24,11 +24,11 @@
                             <thead>
                                 <tr>
                                     
+                                        <g:sortableColumn property="startYear" title="${message(code: 'schoolYear.startYear.label', default: 'Start Year')}" />
+                                        
                                         <g:sortableColumn property="endYear" title="${message(code: 'schoolYear.endYear.label', default: 'End Year')}" />
                                         
                                         <g:sortableColumn property="name" title="${message(code: 'schoolYear.name.label', default: 'Name')}" />
-                                        
-                                        <g:sortableColumn property="startYear" title="${message(code: 'schoolYear.startYear.label', default: 'Start Year')}" />
                                         
                                 </tr>
                             </thead>
@@ -36,11 +36,11 @@
                                 <g:each in="${schoolYearInstanceList}" status="i" var="schoolYearInstance">
                                     <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                                         
-                                        <td><g:link action="show" id="${schoolYearInstance.id}">${fieldValue(bean: schoolYearInstance, field: "endYear")}</g:link></td>
+                                        <td><g:link action="show" id="${schoolYearInstance.id}">${fieldValue(bean: schoolYearInstance, field: "startYear")}</g:link></td>
+                                        
+                                        <td>${fieldValue(bean: schoolYearInstance, field: "endYear")}</td>
                                         
                                         <td>${fieldValue(bean: schoolYearInstance, field: "name")}</td>
-                                        
-                                        <td>${fieldValue(bean: schoolYearInstance, field: "startYear")}</td>
                                         
                                     </tr>
                                 </g:each>

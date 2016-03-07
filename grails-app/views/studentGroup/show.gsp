@@ -23,20 +23,20 @@
 			</g:if>
 			<ol class="property-list studentGroup">
 			
-				<g:if test="${studentGroupInstance?.homework}">
-				<li class="fieldcontain">
-					<span id="homework-label" class="property-label"><g:message code="studentGroup.homework.label" default="Homework" /></span>
-					
-						<span class="property-value" aria-labelledby="homework-label"><g:link controller="homework" action="show" id="${studentGroupInstance?.homework?.id}">${studentGroupInstance?.homework?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${studentGroupInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="studentGroup.name.label" default="Name" /></span>
 					
 						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${studentGroupInstance}" field="name"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${studentGroupInstance?.homework}">
+				<li class="fieldcontain">
+					<span id="homework-label" class="property-label"><g:message code="studentGroup.homework.label" default="Homework" /></span>
+					
+						<span class="property-value" aria-labelledby="homework-label"><g:link controller="homework" action="show" id="${studentGroupInstance?.homework?.id}">${studentGroupInstance?.homework?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
