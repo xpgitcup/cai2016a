@@ -13,6 +13,13 @@
         <title>Sample title</title>
     </head>
     <body>
-        <h1>Sample line</h1>
+        <table>
+            <tr>
+                <td>注册</td>
+                <td>选课</td>
+                <td>加入小组</td>
+                <td>答辩</td>
+            </tr>
+        </table>
     </body>
 </html>
