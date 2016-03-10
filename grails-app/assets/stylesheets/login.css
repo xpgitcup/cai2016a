@@ -14,7 +14,7 @@ body {
     position : absolute;
     top : 50%;
     left : 50%;
-    margin : -166px 0 0 -242px;
+    margin : -150px 0 0 -242px;
     width : 521px;
     height : 375px;
     background-color : #f1f3cd;
@@ -25,6 +25,13 @@ body {
     width : 521px;
     height : 375px;
     background : url(../images/login/login_bg.png) no-repeat;
+}
+
+#main .top_register{
+    position : relative;
+    width : 521px;
+    height : 375px;
+    background : url(../images/login/login_bg_registerA.png) no-repeat;
 }
 
 #main .title{
@@ -39,7 +46,7 @@ body {
     position: relative;
     font-family: "微软雅黑";
     font-size: 1.4em;
-    padding-top: 35px;
+    padding-top: 30px;
     padding-left: 150px;
 }
 

@@ -67,7 +67,7 @@
             <!--*************************************************************-->
             <div title="注册" data-options="closable:true" >   
                 <!--注册START-->
-                <div class = "top">
+                <div class = "top_register">
                     <div class="title">请注册</div>
                     <g:form controller="home" action="login" method="post">
                         <div class="form">
