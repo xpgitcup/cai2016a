@@ -23,6 +23,8 @@
     <asset:javascript src="easyui/jquery.easyui.min.js"/>
 
     <asset:stylesheet src="login.css"/>
+<!--系统操作的相关内容-->
+    <asset:javascript src="system/home.js"/>
 
 </head>
 <body>
@@ -69,7 +71,7 @@
                 <!--注册START-->
                 <div class = "top_register">
                     <div class="title">请注册</div>
-                    <g:form controller="home" action="login" method="post">
+                    <g:form controller="home" action="register" method="post">
                         <div class="form">
                             <table>
                                 <tr>
@@ -82,7 +84,7 @@
                                 </tr>
                                 <tr>
                                     <td><label>重复一遍</label></td>
-                                    <td><g:field type="password" name = "password" class = "psw" /></td>
+                                    <td><g:field type="password" name = "repassword" class = "psw" /></td>
                                 </tr>
                             </table>
                         </div>
@@ -90,7 +92,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <g:actionSubmit value="注册" action="login"/>
+                                        <g:actionSubmit value="注册" action="register"/>
                                     </td>
                                     <td>
                                         <button value="重置" type="reset">重置</button>
