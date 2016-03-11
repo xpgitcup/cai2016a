@@ -1,16 +1,34 @@
 package cn.edu.cup.system.home
 
 import cn.edu.cup.system.SystemLog
+import cn.edu.cup.system.SystemRole
 import cn.edu.cup.system.SystemUser
 import cn.edu.cup.system.SystemDefaultMenu
 import grails.converters.JSON
 import grails.transaction.Transactional
 
+@Transactional(readOnly = true)
 class HomeController {
 
     def systemLogService
     def systemCommonService
     def commonService
+    
+    @Transactional
+    def register() {
+        println "${params}"
+        if (params.password.equals(params.repassword)) {
+            SystemRole role = SystemRole.findByRoleName("操作员")
+            params.role = role
+            SystemUser newUser = new SystemUser(params)
+            newUser.save()
+            println("${newUser}")
+            chain(controller:'home', action:'login', params:params)
+        } else {
+            flash.message = "密码不一致"
+            chain(controller:'home', action:'loginUI', params:[flash:flash])
+        }
+    }
     
     //点击菜单
     def showMenuInfo(params) {
