@@ -67,24 +67,24 @@
                 <!--登录END-->
             </div>   
             <!--*************************************************************-->
-            <div title="注册" data-options="closable:true" >   
+            <div title="学生注册" data-options="closable:true" >   
                 <!--注册START-->
                 <div class = "top_register">
-                    <div class="title">请注册</div>
-                    <g:form controller="home" action="register" method="post">
+                    <div class="title">同学请注册(初始密码123456)</div>
+                    <g:form controller="cai" method="post">
                         <div class="form">
                             <table>
                                 <tr>
-                                    <td><label>用&nbsp;户&nbsp;名</label></td>
-                                    <td><g:textField name="userName" class ="name" /></td>
+                                    <td><label>学号</label></td>
+                                    <td><g:textField name="code" required="" value="${studentInstance?.code}"/></td>
                                 </tr>
                                 <tr>
-                                    <td><label>设置密码</label></td>
-                                    <td><g:field type="password" name = "password" class = "psw" /></td>
+                                    <td><label>姓名</label></td>
+                                    <td><g:textField name="name" required="" value="${studentInstance?.name}"/></td>
                                 </tr>
                                 <tr>
-                                    <td><label>重复一遍</label></td>
-                                    <td><g:field type="password" name = "repassword" class = "psw" /></td>
+                                    <td><label>班级</label></td>
+                                    <td><g:select id="grade" name="grade.id" from="${cn.edu.cup.cai.Grade.list()}" optionKey="id" required="" value="${studentInstance?.grade?.id}" class="many-to-one"/></td>
                                 </tr>
                             </table>
                         </div>
@@ -92,7 +92,7 @@
                             <table>
                                 <tr>
                                     <td>
-                                        <g:actionSubmit value="注册" action="register"/>
+                                        <g:actionSubmit value="注册" action="registerStudent"/>
                                     </td>
                                     <td>
                                         <button value="重置" type="reset">重置</button>

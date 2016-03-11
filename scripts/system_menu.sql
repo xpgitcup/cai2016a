@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : sample
-Source Server Version : 50626
+Source Server         : root
+Source Server Version : 50617
 Source Host           : localhost:3306
 Source Database       : cai2016adb
 
 Target Server Type    : MYSQL
-Target Server Version : 50626
+Target Server Version : 50617
 File Encoding         : 65001
 
-Date: 2016-03-06 20:02:06
+Date: 2016-03-11 19:38:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,7 +30,7 @@ CREATE TABLE `system_menu` (
   PRIMARY KEY (`id`),
   KEY `FK_ta0xmlp775lih3ictrnyi2k5r` (`up_menu_item_id`),
   CONSTRAINT `FK_ta0xmlp775lih3ictrnyi2k5r` FOREIGN KEY (`up_menu_item_id`) REFERENCES `system_menu` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=102 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of system_menu
@@ -42,5 +42,21 @@ INSERT INTO `system_menu` VALUES ('4', '1', 'systemMenu/index', '菜单管理', 
 INSERT INTO `system_menu` VALUES ('5', '1', 'systemLog/index', '日志管理', '日志管理', '0', '10', '1');
 INSERT INTO `system_menu` VALUES ('6', '0', 'systemMenuTree/index', '树形菜单', '直观形象地维护菜单', '0', '10', '1');
 INSERT INTO `system_menu` VALUES ('7', '0', 'systemProcedure/index', '过程控制', '过程控制维护', '0', '10', '1');
-INSERT INTO `system_menu` VALUES ('8', '0', '#', '基础设置', '#', '0', '0', null);
-INSERT INTO `system_menu` VALUES ('9', '0', 'schoolYear/index', '学年', '学年', '0', '0', '8');
+INSERT INTO `system_menu` VALUES ('20', '0', '#', '基础设置', '#', '0', '0', null);
+INSERT INTO `system_menu` VALUES ('21', '0', 'schoolYear/index', '学年', '学年', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('22', '0', 'schoolTerm/index', '学期', '学期', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('23', '0', 'grade/index', '班级', '班级', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('24', '0', 'student/index', '学生', '学生', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('25', '0', 'course/index', '课程', '课程', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('26', '0', 'teacher/index', '教师', '教师', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('27', '0', 'teaching/index', '课程', '课程', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('28', '0', 'teaching/index', '教学', '教学', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('29', '0', 'learning/index', '学习', '学习', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('30', '0', 'homework/index', '留作业', '留作业', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('31', '0', 'studentGroup/index', '作业分组', '作业分组', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('32', '0', 'groupItem/index', '小组成员', '小组成员', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('33', '0', 'job/index', '交作业', '交作业', '0', '0', '20');
+INSERT INTO `system_menu` VALUES ('60', '0', '#', '工作流程', '#', '0', '0', null);
+INSERT INTO `system_menu` VALUES ('61', '0', 'caiTools/index', '操作流程', '交作业', '0', '0', '60');
+INSERT INTO `system_menu` VALUES ('100', '0', '#', '本科生', '#', '0', '0', null);
+INSERT INTO `system_menu` VALUES ('101', '1', 'caiTools/index', '操作流程', '交作业', '0', '1', '100');
