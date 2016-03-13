@@ -14,14 +14,14 @@ $(function () {
     //已完成的作业
 });
 
-function listLearning(offset, pageSize) {
+function listTeaching(offset, pageSize) {
     console.info("列出可选的课程");
     
     $.ajax({
-        url: 'caiTools/queryLearning',
+        url: 'caiTools/queryTeaching',
         data: 'offset=' + offset + '&max=' + pageSize,
         success: function (data, textStatus) {
-            $('#learning').html(data);
+            $('#teaching').html(data);
             console.info(data);
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

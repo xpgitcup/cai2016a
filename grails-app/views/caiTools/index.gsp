@@ -24,7 +24,7 @@
             </ul>
         </div>
         <div id="list-course" class="content scaffold-list" role="main">
-            <h1>欢迎${student}同学！[${student.grade}]</h1>
+            <h1>欢迎${student}同学！[${student?.grade}]， 当前是${schoolYear}， ${schoolTerm}</h1>
             <g:if test="${flash.message}">
                 <div class="message" role="status">${flash.message}</div>
             </g:if>
