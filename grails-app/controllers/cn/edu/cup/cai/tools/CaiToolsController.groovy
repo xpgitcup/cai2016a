@@ -1,5 +1,6 @@
 package cn.edu.cup.cai.tools
 
+import cn.edu.cup.cai.Student
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -34,5 +35,9 @@ class CaiToolsController {
      * 显示需要完成的作业
      * 所属小组的信息
      * */
-    def index() { }
+    def index() { 
+        //用户名就是学生的学号
+        def student = Student.findByCode(session.user.userName)
+        model:[student: student]
+    }
 }

@@ -12,7 +12,7 @@ CREATE TABLE `system_role` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 INSERT INTO `system_role` VALUES ('1', '0', '工程硕士', '0', '0');
-INSERT INTO `system_role` VALUES ('2', '0', '本科生', '1', '1');
+INSERT INTO `system_role` VALUES ('2', '0', '本科生', '5', '0');
 INSERT INTO `system_role` VALUES ('3', '0', '学术硕士', '2', '2');
 INSERT INTO `system_role` VALUES ('4', '0', '专业硕士', '3', '3');
 INSERT INTO `system_role` VALUES ('5', '0', '博士', '4', '4');

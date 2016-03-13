@@ -24,3 +24,4 @@ INSERT INTO `system_user` VALUES ('5', '0', 'f4aa0dd960521e045ae2f20621fb4ee9', 
 INSERT INTO `system_user` VALUES ('6', '0', '37968ad196a5085f5ed91e58df8c2cef', '7', null, '史博会');
 INSERT INTO `system_user` VALUES ('7', '0', '63538fe6ef330c13a05a3ed7e599d5f7', '3', null, '王嘉琪');
 INSERT INTO `system_user` VALUES ('8', '0', '63538fe6ef330c13a05a3ed7e599d5f7', '3', null, '伍星光');
+INSERT INTO `system_user` VALUES ('13', '0', 'e10adc3949ba59abbe56e057f20f883e', '2', null, '2012010970');

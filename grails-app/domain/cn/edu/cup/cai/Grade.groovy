@@ -10,6 +10,6 @@ class Grade {
     }
     
     String toString() {
-        return "${name}"
+        return "${name}(共：${student?.size()}人)"
     }
 }
