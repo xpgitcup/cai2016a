@@ -3,6 +3,8 @@ package cn.edu.cup.cai.tools
 import cn.edu.cup.cai.Student
 import cn.edu.cup.cai.SchoolYear
 import cn.edu.cup.cai.SchoolTerm
+import cn.edu.cup.education.Teaching
+import cn.edu.cup.education.Learning
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -24,14 +26,36 @@ class CaiToolsController {
     }
     
     /*
-     * 学生选课
+     * 列出所选课程
      * */
-    def studentCourseSelection() {
-        //选课以后返回
+    def queryLearning(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        
+        println "${params}"
+        
+        def learningList = Learning.findByStudent(session.currentStudent)
+        println "${learningList}---"
+        
+        if (request.xhr) {
+            render(template: "learning", model:[learningInstanceList: learningList, learningInstanceCount: learningList.count()])
+        } else {
+            model:[learningInstanceList: learningList, learningInstanceCount: learningList.count()]
+        }
     }
     
-    def queryTeaching(params) {
+    def queryTeaching(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
         
+        //println "${params}"
+        
+        def teachingList = Teaching.findBySchoolTerm(session.currentTerm)
+        //println "${teachingList}---"
+        
+        if (request.xhr) {
+            render(template: "teaching", model:[teachingInstanceList: teachingList, teachingInstanceCount: teachingList.count()])
+        } else {
+            model:[teachingInstanceList: teachingList, teachingInstanceCount: teachingList.count()]
+        }
     }
     
     /*
@@ -50,7 +74,7 @@ class CaiToolsController {
         def schoolTerm
         def term
         def firstTerm = [8,9,10,11,12,1]
-        println "${month}, ${year}"
+        //println "${month}, ${year}"
         if (firstTerm.contains(schoolYear)) {
             schoolYear = SchoolYear.findByStartYear(year)
             term = "秋"
@@ -64,6 +88,7 @@ class CaiToolsController {
         
         def student = Student.findByCode(session.user.userName)
         
+        session.currentStudent = student
         
         model:[student: student, schoolYear: schoolYear, schoolTerm: schoolTerm]
     }
