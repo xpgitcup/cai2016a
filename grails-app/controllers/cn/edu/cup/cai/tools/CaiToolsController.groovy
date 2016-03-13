@@ -1,6 +1,8 @@
 package cn.edu.cup.cai.tools
 
 import cn.edu.cup.cai.Student
+import cn.edu.cup.cai.SchoolYear
+import cn.edu.cup.cai.SchoolTerm
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -28,7 +30,7 @@ class CaiToolsController {
         //选课以后返回
     }
     
-    def queryLearning(params) {
+    def queryTeaching(params) {
         
     }
     
@@ -41,10 +43,28 @@ class CaiToolsController {
      * */
     def index() { 
         //用户名就是学生的学号
-        def today = new Date()
-        def year = today.year
+        def calendar = Calendar.getInstance()
+        def year = calendar.get(Calendar.YEAR);
+        def month = calendar.get(Calendar.MONTH);
+        def schoolYear
+        def schoolTerm
+        def term
+        def firstTerm = [8,9,10,11,12,1]
+        println "${month}, ${year}"
+        if (firstTerm.contains(schoolYear)) {
+            schoolYear = SchoolYear.findByStartYear(year)
+            term = "秋"
+        } else {
+            schoolYear = SchoolYear.findByEndYear(year)
+            term = "春"
+        }
+        schoolTerm = SchoolTerm.findBySchoolYearAndName(schoolYear, term)
+        
+        session.currentTerm = schoolTerm    //记录在会话中
         
         def student = Student.findByCode(session.user.userName)
-        model:[student: student]
+        
+        
+        model:[student: student, schoolYear: schoolYear, schoolTerm: schoolTerm]
     }
 }
