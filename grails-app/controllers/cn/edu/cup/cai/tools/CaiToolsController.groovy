@@ -26,6 +26,20 @@ class CaiToolsController {
     }
     
     /*
+     * 选课
+     * */
+    @Transactional
+    def selectTheTeaching() {
+        def t = Teaching.get(params.id)
+        def l = Learning.findByTeachingAndStudent(t, session.currentStudent)
+        if (!l) {
+            l = new Learning(teaching: t, student: session.currentStudent)
+            l.save(flush: true)
+        }
+        redirect(controller: "caiTools", action: "index")
+    }
+    
+    /*
      * 列出所选课程
      * */
     def queryLearning(Integer max) {
@@ -36,10 +50,18 @@ class CaiToolsController {
         def learningList = Learning.findByStudent(session.currentStudent)
         println "${learningList}---"
         
+        def q = Learning.createCriteria()
+        def count = q.get {
+            projections {
+                countDistinct "teaching"
+            }
+            eq("student", session.currentStudent)
+        }
+        
         if (request.xhr) {
-            render(template: "learning", model:[learningInstanceList: learningList, learningInstanceCount: learningList.count()])
+            render(template: "learning", model:[learningInstanceList: learningList, learningInstanceCount: count])
         } else {
-            model:[learningInstanceList: learningList, learningInstanceCount: learningList.count()]
+            model:[learningInstanceList: learningList, learningInstanceCount: count]
         }
     }
     

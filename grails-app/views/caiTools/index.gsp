@@ -29,8 +29,8 @@
             <div class="message" role="status">${flash.message}</div>
         </g:if>
 
-        <div id="homeTabPage" class="easyui-tabs" style="width: 521px">
-            <div title="课程" style="width: 200px"> 
+        <div id="homeTabPage" class="easyui-tabs">
+            <div title="课程"> 
                 <table>
                     <thead>
                         <tr>
