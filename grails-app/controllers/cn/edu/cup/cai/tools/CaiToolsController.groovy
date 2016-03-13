@@ -28,6 +28,10 @@ class CaiToolsController {
         //选课以后返回
     }
     
+    def queryLearning(params) {
+        
+    }
+    
     /*
      * 学生缺省界面
      * 显示基本信息
@@ -37,6 +41,9 @@ class CaiToolsController {
      * */
     def index() { 
         //用户名就是学生的学号
+        def today = new Date()
+        def year = today.year
+        
         def student = Student.findByCode(session.user.userName)
         model:[student: student]
     }
