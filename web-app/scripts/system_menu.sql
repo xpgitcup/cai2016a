@@ -58,8 +58,5 @@ INSERT INTO `system_menu` VALUES ('31', '0', 'studentGroup/index', '作业分组
 INSERT INTO `system_menu` VALUES ('32', '0', 'groupItem/index', '小组成员', '小组成员', '0', '0', '20');
 INSERT INTO `system_menu` VALUES ('33', '0', 'job/index', '交作业', '交作业', '0', '0', '20');
 
-INSERT INTO `system_menu` VALUES ('60', '0', '#', '工作流程', '#', '0', '0', null);
-INSERT INTO `system_menu` VALUES ('61', '0', 'caiTools/index', '操作流程', '交作业', '0', '0', '60');
-
 INSERT INTO `system_menu` VALUES ('100', '0', '#', '本科生', '#', '0', '0', null);
 INSERT INTO `system_menu` VALUES ('101', '0', 'caiTools/index', '学生界面', '学生界面', '0', '0', '100');
