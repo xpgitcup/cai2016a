@@ -6,13 +6,51 @@
 $(function () {
     //显示当前待选课程
     listTeaching(1, 10);
-
     //我所选的课程
     listLearning(1, 10);
     //作业情况
-
+    listHomework(1, 10);
     //已完成的作业
+    //当前分组情况
+    listGroup(1,10);
 });
+
+function listGroup(offset, pageSize) {
+    console.info("列出当前的分组情况");
+    
+    $.ajax({
+        url: 'caiTools/queryGroup',
+        data: 'offset=' + offset + '&max=' + pageSize,
+        success: function (data, textStatus) {
+            $('#group').html(data);
+            console.info(data);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.info(XMLHttpRequest);
+            console.info(textStatus);
+            console.info(errorThrown);
+        }
+    });
+}
+
+
+function listHomework(offset, pageSize) {
+    console.info("列出需要完成的作业");
+    
+    $.ajax({
+        url: 'caiTools/queryHomework',
+        data: 'offset=' + offset + '&max=' + pageSize,
+        success: function (data, textStatus) {
+            $('#homework').html(data);
+            console.info(data);
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            console.info(XMLHttpRequest);
+            console.info(textStatus);
+            console.info(errorThrown);
+        }
+    });
+}
 
 function listLearning(offset, pageSize) {
     console.info("列出我的课程");

@@ -11,12 +11,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: studentGroupInstance, field: 'homework', 'error')} required">
-	<label for="homework">
-		<g:message code="studentGroup.homework.label" default="Homework" />
+<div class="fieldcontain ${hasErrors(bean: studentGroupInstance, field: 'teaching', 'error')} required">
+	<label for="teaching">
+		<g:message code="studentGroup.teaching.label" default="Teaching" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="homework" name="homework.id" from="${cn.edu.cup.education.Homework.list()}" optionKey="id" required="" value="${studentGroupInstance?.homework?.id}" class="many-to-one"/>
+	<g:select id="teaching" name="teaching.id" from="${cn.edu.cup.education.Teaching.list()}" optionKey="id" required="" value="${studentGroupInstance?.teaching?.id}" class="many-to-one"/>
 
 </div>
 

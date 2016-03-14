@@ -3,8 +3,10 @@ package cn.edu.cup.cai.tools
 import cn.edu.cup.cai.Student
 import cn.edu.cup.cai.SchoolYear
 import cn.edu.cup.cai.SchoolTerm
+import cn.edu.cup.cai.StudentGroup
 import cn.edu.cup.education.Teaching
 import cn.edu.cup.education.Learning
+import cn.edu.cup.education.Homework
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
@@ -19,10 +21,60 @@ class CaiToolsController {
     }
     
     /*
-     * 加入某个小组
+     * 检索当前分组情况
      * */
-    def studentJoinGroup() {
+    def queryGroup(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
         
+        println "检索分组情况    ${params}"
+        
+        //先检索所学的课程
+        def learningList = Learning.findByStudent(session.currentStudent)
+        def teachings = []
+        learningList.each(){e->
+            teachings.add(e.teaching)
+        }
+        //检索分组
+        def qc = StudentGroup.createCriteria()
+        def q = StudentGroup.createCriteria()
+        def groups = q.list{
+            'in'("teaching", teachings)
+        }
+       
+        if (request.xhr) {
+            render(template: "group", model:[studentGroupInstanceList: groups, studentGroupInstanceCount: groups.size()])
+        } else {
+            model:[studentGroupInstanceList: groups, studentGroupInstanceCount: groups.size()]
+        }
+    }
+
+    
+    /*
+     * 检索当前作业情况
+     * */
+    def queryHomework(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        
+        println "检索作业    ${params}"
+        
+        //先检索所学的课程
+        def learningList = Learning.findByStudent(session.currentStudent)
+        def teachings = []
+        learningList.each(){e->
+            teachings.add(e.teaching)
+        }
+        //检索作业
+        def qc = Homework.createCriteria()
+        def q = Homework.createCriteria()
+        def homeworks = q.list{
+            'in'("teaching", teachings)
+        }
+       
+        if (request.xhr) {
+            render(template: "homework", model:[homeworkInstanceList: homeworks, homeworkInstanceCount: homeworks.size()])
+        } else {
+            model:[homeworkInstanceList: homeworks, homeworkInstanceCount: homeworks.size()]
+        }
     }
     
     /*

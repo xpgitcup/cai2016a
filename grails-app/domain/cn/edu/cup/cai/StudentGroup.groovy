@@ -1,20 +1,20 @@
 package cn.edu.cup.cai
 
-import cn.edu.cup.education.Homework
+import cn.edu.cup.education.Teaching
 
 class StudentGroup {
 
     String name
-    Homework homework
+    Teaching teaching
     
     static hasMany = [groupItem: GroupItem]
     
     static constraints = {
         name()
-        homework()
+        teaching()
     }
     
     String toString() {
-        return "${name}.${homework}"
+        return "${name}.${teaching}"
     }
 }

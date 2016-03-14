@@ -26,7 +26,7 @@
                                     
                                         <g:sortableColumn property="name" title="${message(code: 'studentGroup.name.label', default: 'Name')}" />
                                         
-                                    <th><g:message code="studentGroup.teaching.label" default="Teaching" /></th>
+                                    <th><g:message code="studentGroup.homework.label" default="Homework" /></th>
                                         
                                 </tr>
                             </thead>
@@ -36,7 +36,7 @@
                                         
                                         <td><g:link action="show" id="${studentGroupInstance.id}">${fieldValue(bean: studentGroupInstance, field: "name")}</g:link></td>
                                         
-                                        <td>${fieldValue(bean: studentGroupInstance, field: "teaching")}</td>
+                                        <td>${fieldValue(bean: studentGroupInstance, field: "homework")}</td>
                                         
                                     </tr>
                                 </g:each>
