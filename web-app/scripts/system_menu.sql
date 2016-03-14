@@ -60,3 +60,6 @@ INSERT INTO `system_menu` VALUES ('33', '0', 'job/index', '交作业', '交作�
 
 INSERT INTO `system_menu` VALUES ('100', '0', '#', '本科生', '#', '0', '0', null);
 INSERT INTO `system_menu` VALUES ('101', '0', 'caiTools/index', '学生界面', '学生界面', '0', '0', '100');
+
+INSERT INTO `system_menu` VALUES ('200', '0', '#', '教师', '#', '0', '0', null);
+INSERT INTO `system_menu` VALUES ('201', '0', 'cai4Teacher/index', '教师界面', '教师界面', '0', '0', '200');
