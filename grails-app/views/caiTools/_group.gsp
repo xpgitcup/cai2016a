@@ -1,50 +1,48 @@
 
 <%@ page import="cn.edu.cup.cai.StudentGroup" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta name="layout" content="main">
-        <g:set var="entityName" value="${message(code: 'studentGroup.label', default: 'StudentGroup')}" />
-        <title><g:message code="default.list.label" args="[entityName]" /></title>
-    </head>
-    <body>
-        <a href="#list-studentGroup" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
-            <ul>
-                <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-                       <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-                           </ul>
-                           </div>
-                           <div id="list-studentGroup" class="content scaffold-list" role="main">
-                       <h1><g:message code="default.list.label" args="[entityName]" /></h1>
-                        <g:if test="${flash.message}">
-                            <div class="message" role="status">${flash.message}</div>
+<div id="list-studentGroup" class="content scaffold-list" role="main">
+    <g:if test="${flash.message}">
+        <div class="message" role="status">${flash.message}</div>
+    </g:if>
+    <table>
+        <thead>
+            <tr>
+                <td>编号</td>
+                <td>组长</td>
+                <td>人数</td>
+                <td>状态(是否属于)</td>
+                <td>课程</td>
+                <td>操作</td>
+            </tr>
+        </thead>
+        <tbody>
+            <g:each in="${items}" status="i" var="e">
+                <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
+                    <td>${e.key.id}</td>
+                    <td>${e.key.name}</td>
+                    <td>${e.key.groupItem.size()}</td>
+                    <td>${e.value}</td>
+                    <td>${e.key}</td>
+                    <td>
+                        <g:if test="${e.value}">
+                            <a href="caiTools/deleteGroupItem?group=${e.key.id}">退出</a>
                         </g:if>
-                        <table>
-                            <thead>
-                                <tr>
-                                    
-                                        <g:sortableColumn property="name" title="${message(code: 'studentGroup.name.label', default: 'Name')}" />
-                                        
-                                    <th><g:message code="studentGroup.homework.label" default="Homework" /></th>
-                                        
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <g:each in="${studentGroupInstanceList}" status="i" var="studentGroupInstance">
-                                    <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-                                        
-                                        <td><g:link action="show" id="${studentGroupInstance.id}">${fieldValue(bean: studentGroupInstance, field: "name")}</g:link></td>
-                                        
-                                        <td>${fieldValue(bean: studentGroupInstance, field: "homework")}</td>
-                                        
-                                    </tr>
-                                </g:each>
-                            </tbody>
-                        </table>
-                        <div class="paginationGrails">
-                            <g:paginate total="${studentGroupInstanceCount ?: 0}" />
-                        </div>
-                        </div>
-                        </body>
-                        </html>
+                        <g:else>
+                            <g:if test="${e.key.groupItem.size()<3}">
+                                <a href="caiTools/joinIntoGroup?group=${e.key.id}">加入</a>
+                            </g:if>
+                            <g:else>
+                                人数已满
+                            </g:else>
+                        </g:else>
+                    </td>
+                    <td></td>
+                </tr>
+            </g:each>
+        </tbody>
+    </table>
+    <div class="paginationGrails">
+        <g:paginate total="${studentGroupInstanceCount ?: 0}" />
+    </div>
+</div>

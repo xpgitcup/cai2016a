@@ -4,6 +4,7 @@ import cn.edu.cup.cai.Student
 import cn.edu.cup.cai.SchoolYear
 import cn.edu.cup.cai.SchoolTerm
 import cn.edu.cup.cai.StudentGroup
+import cn.edu.cup.cai.GroupItem
 import cn.edu.cup.education.Teaching
 import cn.edu.cup.education.Learning
 import cn.edu.cup.education.Homework
@@ -12,12 +13,58 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class CaiToolsController {
 
+    /*
+     * 加入小组
+     * */
+    @Transactional
+    def joinIntoGroup() {
+        println "退出小组：  ${params}"
+        
+        def group = StudentGroup.get(params.group)
+        def student = session.currentStudent
+        def item = GroupItem.findByStudentGroupAndStudent(group, student)
+        if (!item) {
+            item = new GroupItem(student: student, studentGroup: group)
+            item.save(flush: true)
+        }
+        redirect(action: "index", controller: "caiTools")
+    }
     
     /*
-     * 做作业
+     * 退出小组
      * */
-    def studentDoHomework() {
+    @Transactional
+    def deleteGroupItem() {
+        println "退出小组：  ${params}"
         
+        def group = StudentGroup.get(params.group)
+        def student = session.currentStudent
+        def item = GroupItem.findByStudentGroupAndStudent(group, student)
+        if (item) {
+            item.delete()
+        }
+        if (group.name.equals(student.name)) {
+            group.delete()
+        }
+        redirect(action: "index", controller: "caiTools")
+    }
+    
+    /*
+     * 创建小组
+     * */
+    @Transactional
+    def createGroup() {
+        println "创建小组：  ${params}"
+        def teaching = Teaching.get(params.id)
+        def student = session.currentStudent
+        def found = StudentGroup.findByTeachingAndName(teaching, student.name)
+        if (!found) {
+            def group = new StudentGroup(teaching: teaching, name: student.name)
+            def groupItem = new GroupItem(studentGroup: group, student: student)
+            group.save(flush: true)
+            groupItem.save(flush: true)
+        }
+        redirect(action: "index", controller: "caiTools")
     }
     
     /*
@@ -40,11 +87,20 @@ class CaiToolsController {
         def groups = q.list{
             'in'("teaching", teachings)
         }
+        def items = [:]
+        groups.each(){e->
+            def found = GroupItem.findByStudentAndStudentGroup(session.currentStudent, e)
+            if (found) {
+                items.put(e, true)
+            } else {
+                items.put(e, false)
+            }
+        }
        
         if (request.xhr) {
-            render(template: "group", model:[studentGroupInstanceList: groups, studentGroupInstanceCount: groups.size()])
+            render(template: "group", model:[studentGroupInstanceList: groups, studentGroupInstanceCount: groups.size(), items: items])
         } else {
-            model:[studentGroupInstanceList: groups, studentGroupInstanceCount: groups.size()]
+            model:[studentGroupInstanceList: groups, studentGroupInstanceCount: groups.size(), items: items]
         }
     }
 

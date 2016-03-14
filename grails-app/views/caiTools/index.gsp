@@ -34,8 +34,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <td>待选</td>
-                            <td>已选</td>
+                            <td>待选，点击可以选修该课程</td>
+                            <td>我的课程</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,22 +79,7 @@
 
             </div>
             <div title="小组" style="width: 200px"> 
-                <table>
-                    <thead>
-                        <tr>
-                            <td>待选</td>
-                            <td>已选</td>
-                            <td>待完成</td>
-                            <td>已完成</td>
-                            <td>小组</td>
-                            <td>小组</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        </tr>
-                    </tbody>
-                </table>
+                <div id="group"></div>
                 <div class="paginationGrails">
                     <g:paginate total="${courseInstanceCount ?: 0}" />
                 </div>
