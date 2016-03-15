@@ -1,4 +1,3 @@
-
 <%@ page import="cn.edu.cup.cai.StudentGroup" %>
 <!DOCTYPE html>
 <div id="list-studentGroup" class="content scaffold-list" role="main">
@@ -42,7 +41,4 @@
             </g:each>
         </tbody>
     </table>
-    <div class="paginationGrails">
-        <g:paginate total="${studentGroupInstanceCount ?: 0}" />
-    </div>
 </div>

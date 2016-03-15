@@ -49,10 +49,6 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="paginationGrails">
-                    <g:paginate total="${courseInstanceCount ?: 0}" />
-                </div>
-
             </div>
             <div title="作业" style="width: 200px"> 
                 <table>
@@ -73,15 +69,12 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="paginationGrails">
-                    <g:paginate total="${courseInstanceCount ?: 0}" />
-                </div>
-
             </div>
             <div title="小组" style="width: 200px"> 
                 <div id="group"></div>
-                <div class="paginationGrails">
-                    <g:paginate total="${courseInstanceCount ?: 0}" />
+                <div class="easyui-panel">
+                    <div class="easyui-pagination" id="student2" data-options="total:${studentGroupInstanceCount}, pageSize:10">
+                    </div>
                 </div>
             </div>
         </div>

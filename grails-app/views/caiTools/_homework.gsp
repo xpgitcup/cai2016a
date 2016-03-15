@@ -26,3 +26,16 @@
         <g:paginate total="${homeworkInstanceCount ?: 0}" />
     </div>
 </div>
+<div class="easyui-panel">
+    <div class="easyui-pagination" id="student1" data-options="total:${studentGroupInstanceCount}, 
+         pageSize:10, 
+         onSelectPage: function (pageNumber, pageSize) {
+         console.info(pageNumber);
+         console.info(pageSize);
+         $(this).pagination('loading');
+         //alert('pageNumber:' + pageNumber + ',pageSize:' + pageSize);
+         loadData(pageNumber, pageSize);
+         $(this).pagination('loaded');
+         }">
+    </div>
+</div>
