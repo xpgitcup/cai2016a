@@ -82,11 +82,19 @@ class CaiToolsController {
             teachings.add(e.teaching)
         }
         //检索分组
-        def qc = StudentGroup.createCriteria()
         def q = StudentGroup.createCriteria()
-        def groups = q.list{
-            'in'("teaching", teachings)
+        def groups = q.list {e->
+            'in' ("teaching", teachings)
         }
+        /*
+        def groups = q.list {
+        projections {
+        'in' ("teaching", teachings)
+        }
+        }*/
+        
+        //def groups = StudentGroup.executeQuery("select ")
+        
         def items = [:]
         groups.each(){e->
             def found = GroupItem.findByStudentAndStudentGroup(session.currentStudent, e)
@@ -212,14 +220,17 @@ class CaiToolsController {
             schoolYear = SchoolYear.findByEndYear(year)
             term = "春"
         }
+        //确定学期
         schoolTerm = SchoolTerm.findBySchoolYearAndName(schoolYear, term)
-        
         session.currentTerm = schoolTerm    //记录在会话中
-        
+        //确定学生
         def student = Student.findByCode(session.user.userName)
-        
         session.currentStudent = student
-        
-        model:[student: student, schoolYear: schoolYear, schoolTerm: schoolTerm]
+        //分组
+        def groupInfo = queryGroup()
+        model:[student: student, schoolYear: schoolYear, 
+            schoolTerm: schoolTerm,
+            groupInfo: groupInfo
+        ]
     }
 }
