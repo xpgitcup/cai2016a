@@ -63,3 +63,6 @@ INSERT INTO `system_menu` VALUES ('101', '0', 'caiTools/index', '学生界面', 
 
 INSERT INTO `system_menu` VALUES ('200', '0', '#', '教师', '#', '0', '0', null);
 INSERT INTO `system_menu` VALUES ('201', '0', 'cai4Teacher/index', '教师界面', '教师界面', '0', '0', '200');
+INSERT INTO `system_menu` VALUES ('202', '0', 'randTools/index', '随机抽签', '随机抽签', '0', '0', '200');
+INSERT INTO `system_menu` VALUES ('203', '0', 'randProject/index', '设置抽签基础数据', '随机抽签', '0', '0', '200');
+INSERT INTO `system_menu` VALUES ('204', '0', 'randItem/index', '小组抽选记录', '随机抽签', '0', '0', '200');

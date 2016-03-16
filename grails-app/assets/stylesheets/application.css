@@ -11,8 +11,13 @@
 *= require mobile
 *= require_self
 */
-
 /*李晓平增加的设置*/
+
+.drawResult {
+    font-family: '微软雅黑';
+    font-size: 2em
+}
+
 .footerPanel {
     font-family: '微软雅黑';
     font-size: 1.4em;
