@@ -36,7 +36,7 @@ class RandToolsController {
         randItemInstance.save()
         
         if (request.xhr) {
-            render(template:"drawResult", model:[randItemInstance:randItemInstance, student: p, goon: goon])
+            render(template:"drawResult", model:[randItemInstance:randItemInstance, student: p + 1, goon: goon])
         }
         else {
             model:[randItemInstance:randItemInstance, student: p, goon: goon]

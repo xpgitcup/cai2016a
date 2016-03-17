@@ -10,7 +10,7 @@
         <title>Sample title</title>
     </head>
     <body>
-        <table class="drawResult">
+        <table class="drawResult" id="realTimeDraw">
             <tr>
                 <td>班级</td>
                 <td>组号</td>
@@ -20,8 +20,8 @@
             </tr>
             <tr>
                 <td><g:link action="show" id="${randItemInstance.id}">${fieldValue(bean: randItemInstance, field: "className")}</g:link></td>
-                <td>${fieldValue(bean: randItemInstance, field: "groupName")}</td>
-                <td>${student}</td>
+                <td>第${fieldValue(bean: randItemInstance, field: "groupName")}组</td>
+                <td>${student}#同学</td>
                 <td>${randItemInstance.ok}</td>
                 <td>
                     <g:if test="${goon}">
@@ -32,6 +32,5 @@
                 </td>
             </tr>
         </table>
-
     </body>
 </html>

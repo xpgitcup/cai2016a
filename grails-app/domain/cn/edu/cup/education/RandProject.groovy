@@ -38,7 +38,7 @@ class RandProject {
                 mName = members[i]
             }
             for (int k=0; k<groupNumber; k++) {
-                def item = new RandItem(className: e, groupName: k, memberName: mName, randProject: this)
+                def item = new RandItem(className: e, groupName: k + 1, memberName: mName, randProject: this)
                 item.save(flush: true)
             }
         }
