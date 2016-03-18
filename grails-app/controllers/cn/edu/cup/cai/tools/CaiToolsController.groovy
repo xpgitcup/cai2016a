@@ -176,15 +176,15 @@ class CaiToolsController {
     def queryTeaching(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         
-        //println "${params}"
+        println "${params}"
         
-        def teachingList = Teaching.findBySchoolTerm(session.currentTerm)
-        //println "${teachingList}---"
+        def teachingList = Teaching.findAllBySchoolTerm(session.currentTerm)
+        println "${teachingList}---"
         
         if (request.xhr) {
-            render(template: "teaching", model:[teachingInstanceList: teachingList, teachingInstanceCount: teachingList.count()])
+            render(template: "teaching", model:[teachingInstanceList: teachingList, teachingInstanceCount: teachingList.size()])
         } else {
-            model:[teachingInstanceList: teachingList, teachingInstanceCount: teachingList.count()]
+            model:[teachingInstanceList: teachingList, teachingInstanceCount: teachingList.size()]
         }
     }
     
