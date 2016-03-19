@@ -20,6 +20,7 @@
                     <g:sortableColumn property="projectDate" title="${message(code: 'randProject.projectDate.label', default: 'Project Date')}" />
                     <td>创建小组</td>
                     <td>抽签</td>
+                    <td>抽签A</td>
                 </tr>
             </thead>
             <tbody>
@@ -39,6 +40,9 @@
                         </td>
                         <td>
                             <a href='javascript:draw(${randProjectInstance.id})'>抽选</a>
+                        </td>
+                        <td>
+                            <a href='javascript:drawA(${randProjectInstance.id})'>抽选</a>
                         </td>
                     </tr>
                 </g:each>
